@@ -128,9 +128,9 @@ include user/Makefrag
  #QEMUOPTS = -hda $(OBJDIR)/kern/kernel.img -serial mon:stdio -gdb tcp::$(GDBPORT) -D qemu.log
 CPUS ?= 1
 
-#QEMUOPTS = -hda $(OBJDIR)/kern/kernel.img -serial mon:stdio -gdb tcp::$(GDBPORT)
+QEMUOPTS = -hda $(OBJDIR)/kern/kernel.img -serial mon:stdio -gdb tcp::$(GDBPORT)
 
-QEMUOPTS = -hda $(OBJDIR)/kern/kernel.img -serial mon:stdio -s -p $(GDBPORT)
+#QEMUOPTS = -hda $(OBJDIR)/kern/kernel.img -serial mon:stdio -s -p $(GDBPORT)
 QEMUOPTS += $(shell if $(QEMU) -nographic -help | grep -q '^-D '; then echo '-D qemu.log'; fi)
 
 IMAGES = $(OBJDIR)/kern/kernel.img
