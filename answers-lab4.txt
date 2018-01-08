@@ -1,0 +1,11 @@
+Challenge：
+我实现了priority schedule，具体实现请见lab4.pdf.
+
+Question1
+AP boot是在JOS已经运行起来之后才进行的，使用的是虚拟地址，如果仍使用link address会出错，
+为了获取确切的地址，需要用MPBOOTPHYS来将虚拟地址转换到MPENTRY_PADDR的物理地址。
+Question2
+所有CPU共享一个栈会导致不同CPU指令之间的执行结果的混乱，而且还可能带来指令无法原子性进行的问题。
+Question3
+在JOS中，用户空间的地址映射是不同的，但是kernel空间的地址映射是相同的，而envs数组存在kernel空间
+的地址中，所以即使切换了env也不用更改e的地址映射。
